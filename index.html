@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/CustomStyle.css">
-    <script src="js/bootstrap.min.js"></script>
+
+    <!--<script src="js/bootstrap.min.js"></script>-->
+
 </head>
 <body>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -18,19 +20,18 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
 
-
     <div class="container main-container border-grey table-bordered img-rounded center-block" >
         <div class="row maxheight row-centered ">
-            <div class="modal-header small-padding bg-grey border-grey bord">
+            <div class="modal-header small-padding bg-grey border-grey" id="header">
                 TODO list
-                <div class="delete "></div>
+                <!--<div class="delete "></div>-->
             </div>
-            <form class="list">
-                <p>
+            <form class="list" id="list">
+                <p class="display-none">
                     <input type="checkbox" name="todolist" id="check1">
                     <label for="check1">Раз дело</label>
                 </p>
-                <p>
+                <p class="display">
                     <input type="checkbox" name="todolist" id="check2">
                     <label for="check2">Два дело</label>
                 </p>
@@ -46,5 +47,13 @@
         </div>
     </div>
 
+
+    <!--React.js-->
+    <div id="root"></div>
+
+    <script src="js/react/react.js"></script>
+    <script src="js/react/react-dom.js"></script>
+    <script src="js/react/browser.min.js"></script>
+    <script type="text/babel" src="js/app.js"></script>
 </body>
 </html>

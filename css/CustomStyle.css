@@ -31,6 +31,7 @@ div.main-container{
     background: url("../images/delete.png") 50% 50% no-repeat;
     background-size: contain;
     float: right;
+    cursor: pointer;
 }
 
 form.list{
@@ -57,6 +58,12 @@ form.list label:before{
     background: url("../images/checkbox-blank-circle-outline.png") 50% 50% no-repeat;
 }
 
+/*TODO delete this rule*/
+form.list label[for="check4"]
+{
+    background-color: red;
+}
+
 input[type="checkbox"]:checked + label:before{
     background: url("../images/checkbox-marked-circle-outline.png") 50% 50% no-repeat;
 }
@@ -71,6 +78,7 @@ input[type="checkbox"]:checked + label{
     height: 24px;
     margin: 6px 10px -6px -5px;
     background: url("../images/plus.png") 50% 50% no-repeat;
+    cursor: pointer;
 }
 
 .newtask{
@@ -85,4 +93,10 @@ input.form-control{
     display: inline-block;
 }
 
+.display-none{
+    display: none;
+}
 
+.display{
+    background: mediumvioletred;
+}
