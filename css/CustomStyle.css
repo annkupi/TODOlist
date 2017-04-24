@@ -58,12 +58,6 @@ form.list label:before{
     background: url("../images/checkbox-blank-circle-outline.png") 50% 50% no-repeat;
 }
 
-/*TODO delete this rule*/
-form.list label[for="check4"]
-{
-    background-color: red;
-}
-
 input[type="checkbox"]:checked + label:before{
     background: url("../images/checkbox-marked-circle-outline.png") 50% 50% no-repeat;
 }
@@ -95,8 +89,6 @@ input.form-control{
 
 .display-none{
     display: none;
+    /*background: cadetblue;*/
 }
 
-.display{
-    background: mediumvioletred;
-}

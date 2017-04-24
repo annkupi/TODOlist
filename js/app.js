@@ -1,44 +1,3 @@
-var CheckTasks = [
-    {
-        id: 'check1'
-    },
-    {
-        id: 'check2'
-    },
-    {
-        id: 'check3'
-    },
-    {
-        id: 'check4'
-    },
-    {
-        id: 'check5'
-    }
-];
-
-var LabelTasks = [
-    {
-        htmlFor: 'CheckTask1',
-        taskText: 'раз дело'
-    },
-    {
-        htmlFor: 'CheckTask2',
-        taskText: '2 дело'
-    },
-    {
-        htmlFor: 'CheckTask3',
-        taskText: '3 дело'
-    },
-    {
-        htmlFor: 'CheckTask4',
-        taskText: '4 дело'
-    },
-    {
-        htmlFor: 'CheckTask5',
-        taskText: '5 дело'
-    }
-]
-
 var dataTasks = [
     {
         taskText: 'раз дело'
@@ -56,6 +15,11 @@ var dataTasks = [
         taskText: '5 дело'
     }
 ]
+
+/*alert(dataTasks[dataTasks.length-1].taskText);
+var vallll = 'val etiti!!!';
+dataTasks[dataTasks.length] = {taskText: vallll};
+alert(dataTasks[dataTasks.length-1].taskText);*/
 
 var CheckTask = React.createClass({
     render: function() {
@@ -85,11 +49,12 @@ var AllTasks = React.createClass({
     render: function() {
         var data = this.props.data;
         var tasksTemplate = data.map(function(item, index) {
-            var thisID = "check" + {index}.index;
+            var thisCheckID = "check" + {index}.index;
+            var thisDivID = "div" + {index}.index;
             return (
-                <div key={index} className="display">
-                    <input type="checkbox" name="todolist" id={thisID}/>
-                    <label htmlFor={thisID}>{item.taskText}</label>
+                <div id={thisDivID} className="display">
+                    <input type="checkbox" name="todolist" id={thisCheckID}/>
+                    <label htmlFor={thisCheckID}>{item.taskText}</label>
                 </div>
             )
         })
@@ -157,9 +122,17 @@ ReactDOM.render(
 
 var Trash = React.createClass({
     TrashClicked:  function() {
-        var checked = document.getElementById("check1").checked;
+        /*var checked = document.getElementById("check1").checked;
         alert(checked);
-        dataTasks
+        dataTasks*/
+
+        for (var i = 0; i < dataTasks.length; i++)
+        {
+            var thisCheckID = "check" + i;
+            var thisDivID = "div" + i;
+            var checked = document.getElementById(thisCheckID).checked;
+            if (checked) document.getElementById(thisDivID).setAttribute("class", "display-none");
+        }
     },
     render: function() {
         return (
@@ -175,3 +148,50 @@ ReactDOM.render(
     <Trash/>,
     document.getElementById('header')
 );
+
+var Plus = React.createClass({
+    PlusClicked:  function() {
+        var valueTask = document.getElementById("newtask").value;
+        if (valueTask.replace(/\s/g, '').length < 3) alert("Слишком короткое задание!");
+        else
+        {
+            dataTasks[dataTasks.length] = {taskText: valueTask};
+            document.getElementById("newtask").value = "";
+            ReactDOM.render(
+                <App />,
+                document.getElementById('list')
+            );
+        }
+    },
+    render: function() {
+        return (
+            <div>
+                <div className="plus" onClick={this.PlusClicked}></div>
+                <input className="form-control" type="text" id="newtask"/>
+            </div>
+        )
+    }
+});
+
+ReactDOM.render(
+    <Plus/>,
+    document.getElementById('newTaskDiv')
+);
+
+document.onkeyup = function (e) {
+    e = e || window.event;
+    if (e.keyCode === 13) {
+        var valueTask = document.getElementById("newtask").value;
+        if (valueTask.replace(/\s/g, '').length < 3) alert("Слишком короткое задание!");
+        else
+        {
+            dataTasks[dataTasks.length] = {taskText: valueTask};
+            document.getElementById("newtask").value = "";
+            ReactDOM.render(
+                <App />,
+                document.getElementById('list')
+            );
+        }
+    }
+    return false;
+}
