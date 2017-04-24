@@ -99,7 +99,7 @@ var Plus = React.createClass({
         return (
             <div>
                 <div className="plus" onClick={this.PlusClicked}></div>
-                <input className="form-control" type="text" id="newtask"/>
+                <input className="form-control" type="text" id="newtask" autoFocus="true"/>
             </div>
         )
     }
