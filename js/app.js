@@ -1,25 +1,4 @@
-var dataTasks = [
-    {
-        taskText: 'раз дело'
-    },
-    {
-        taskText: '2 дело'
-    },
-    {
-        taskText: '3 дело'
-    },
-    {
-        taskText: '4 дело'
-    },
-    {
-        taskText: '5 дело'
-    }
-]
-
-/*alert(dataTasks[dataTasks.length-1].taskText);
-var vallll = 'val etiti!!!';
-dataTasks[dataTasks.length] = {taskText: vallll};
-alert(dataTasks[dataTasks.length-1].taskText);*/
+var dataTasks = []
 
 var CheckTask = React.createClass({
     render: function() {
@@ -36,14 +15,6 @@ var LabelTask = React.createClass({
         );
     }
 });
-
-/*
-
-ReactDOM.render(
-    <PTask4/>,
-    document.getElementById('list')
-);
-*/
 
 var AllTasks = React.createClass({
     render: function() {
@@ -66,17 +37,6 @@ var AllTasks = React.createClass({
     }
 });
 
-/*
-var PTask = React.createClass({
-    render: function() {
-        return (
-            <p className="task">
-
-            </p>
-        );
-    }
-});*/
-
 var App = React.createClass({
     render: function() {
         return (
@@ -91,34 +51,6 @@ ReactDOM.render(
     <App />,
     document.getElementById('list')
 );
-
-/*
-var Trash = React.createClass({
-
-/!*
-    constructor(props) {
-        super(props);
-        this.state = {class: "off", label: "Нажми"};
-
-        this.press = this.press.bind(this);
-    }
-*!/
-
-    press(){
-        var className = (this.state.className=="off")?"on":"off";
-        this.setState({className: className});
-    },
-    render: function() {
-        return (
-            <button onClick={this.press} className={this.state.className}>чё-то</button>
-        )
-    }
-});
-
-ReactDOM.render(
-    <Trash />,
-    document.getElementById('list')
-);*/
 
 var Trash = React.createClass({
     TrashClicked:  function() {
