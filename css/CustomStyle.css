@@ -1,4 +1,4 @@
-body{
+/*body{
     padding: 15px;
 }
 
@@ -89,6 +89,29 @@ input.form-control{
 
 .display-none{
     display: none;
-    /*background: cadetblue;*/
+    !*background: cadetblue;*!
+}*/
+
+.header{
+    background: grey;
 }
 
+.Delete{
+    width: 24px;
+    height: 24px;
+    background: mediumpurple;
+}
+
+.TaskList{
+    background: lawngreen;
+}
+
+.New{
+    background: dodgerblue;
+}
+
+.Plus{
+    width: 24px;
+    height: 24px;
+    background: deeppink;
+}
