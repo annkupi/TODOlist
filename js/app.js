@@ -83,8 +83,8 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="header">
-                <span class="h">
+            <div className="header modal-header small-padding bg-grey border-grey">
+                <span className="h">
                     TODO list
                 </span>
                 <div className="Delete" onClick={() => this.DeleteClick() }>
@@ -193,10 +193,12 @@ class App extends React.Component {
     render() {
         var thisNewData = {onClick: this.SetState.bind(this)};
         return (
-            <div class="App">
-                <Header onClick={this.DeleteState.bind(this)} />
-                <TaskList data={this.state.tasks} onChange={this.SuperChangeCheckboxHandle.bind(this)}/>
-                <New data={thisNewData} />
+            <div className="App container main-container border-grey table-bordered img-rounded center-block">
+                <div className="row maxheight row-centered ">
+                    <Header onClick={this.DeleteState.bind(this)} />
+                    <TaskList data={this.state.tasks} onChange={this.SuperChangeCheckboxHandle.bind(this)}/>
+                    <New data={thisNewData} />
+                </div>
             </div>
         );
     }
